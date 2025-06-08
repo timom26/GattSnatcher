@@ -1,0 +1,99 @@
+menu "GATTSnatcher Settings"
+
+menu "UART settings"
+config UART_PORT_NUM
+    int "UART Port Number"
+    default 1
+    help
+        UART port to be used.
+
+choice UART_BAUD_RATE_CHOICE
+    prompt "UART Baud Rate"
+    default UART_BAUD_RATE_460800
+
+config UART_BAUD_RATE_115200
+    bool "115200"
+
+config UART_BAUD_RATE_230400
+    bool "230400"
+
+config UART_BAUD_RATE_460800
+    bool "460800"
+
+endchoice
+
+config UART_BAUD_RATE
+    int
+    default 115200 if UART_BAUD_RATE_115200
+    default 230400 if UART_BAUD_RATE_230400
+    default 460800 if UART_BAUD_RATE_460800
+    help
+        UART communication baud rate.
+
+config UART_RX_BUF_SIZE
+    int "UART RX Buffer Size"
+    default 2048
+    help
+        UART RX buffer size.
+
+config UART_TX_BUF_SIZE
+    int "UART TX Buffer Size"
+    default 2048
+    help
+        UART TX buffer size.
+config UART_PIN_TX
+    int "UART TX Pin Number"
+    default 17 if DEVICE_ROLE_COLLECTOR
+    default 18 if DEVICE_ROLE_QUESTIONER
+    help
+        UART TX pin:
+        - For Collector role, broadcasts on PIN X (e.g., GPIO17)
+        - For Questioner role, broadcasts on PIN Y (e.g., GPIO18)
+
+config UART_PIN_RX
+    int "UART RX Pin Number"
+    default 18 if DEVICE_ROLE_COLLECTOR
+    default 17 if DEVICE_ROLE_QUESTIONER
+    help
+        UART RX pin:
+        - For Collector role, listens on PIN Y (e.g., GPIO18)
+        - For Questioner role, listens on PIN X (e.g., GPIO17)
+endmenu
+
+menu "Output Settings"
+
+config OUTPUT_USE_UART
+    bool "Use UART for output"
+    default y
+    help
+        Output data via UART.
+
+config OUTPUT_USE_FILE
+    bool "Use file for output"
+    default n
+    help
+        Output data to a file.
+
+endmenu
+
+menu "Device Role Selection"
+
+choice
+    prompt "Select device role"
+    default DEVICE_ROLE_COLLECTOR
+
+    config DEVICE_ROLE_COLLECTOR
+        bool "Collector"
+        help
+            Device collects the advertisements from peripherals.
+
+    config DEVICE_ROLE_QUESTIONER
+        bool "Questioner"
+        help
+            Device actively queries peripheral profiles.
+
+endchoice
+
+endmenu
+
+endmenu

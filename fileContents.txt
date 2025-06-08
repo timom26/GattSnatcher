@@ -1,0 +1,270 @@
+    .
+    ├── GattSnatcher
+    │   ├── CMakeLists.txt
+    │   ├── README.md
+    │   ├── advertising.csv
+    │   ├── collector.ini
+    │   ├── collector.py
+    │   ├── dependencies.lock
+    │   ├── detector.py
+    │   ├── diffi.diff
+    │   ├── littlefs_out
+    │   ├── main
+    │   │   ├── CMakeLists.txt
+    │   │   ├── Kconfig.projbuild
+    │   │   ├── beeper.c
+    │   │   ├── collector-ad.cpp
+    │   │   ├── collector_utils.cpp
+    │   │   ├── collector_utils.h
+    │   │   ├── console_print_controller.cpp
+    │   │   ├── console_print_controller.h
+    │   │   ├── constants.h
+    │   │   ├── device_database.cpp
+    │   │   ├── device_database.h
+    │   │   ├── device_interrogator.cpp
+    │   │   ├── device_interrogator.h
+    │   │   ├── device_scanner.cpp
+    │   │   ├── device_scanner.h
+    │   │   ├── hci_event_parser.cpp
+    │   │   ├── hci_event_parser.h
+    │   │   ├── idf_component.yml
+    │   │   ├── interrogator_event_loop.cpp
+    │   │   ├── interrogator_event_loop.h
+    │   │   ├── mac_cache.cpp
+    │   │   ├── mac_cache.h
+    │   │   ├── main.cpp
+    │   │   ├── main.h
+    │   │   ├── output_handler.cpp
+    │   │   ├── output_handler.h
+    │   │   ├── rom_print_controller.cpp
+    │   │   ├── rom_print_controller.h
+    │   │   ├── single-channel-advertiser.c
+    │   │   ├── struct_and_definitions.cpp
+    │   │   ├── struct_and_definitions.h
+    │   │   ├── uart_controller.cpp
+    │   │   ├── uart_controller.h
+    │   │   └── vendor
+    │   │       └── libbtdm_app.a
+    │   ├── notes.txt
+    │   ├── partitions.csv
+    │   ├── sdkconfig
+    │   ├── sdkconfig.old
+    │   ├── storage.bin
+    │   ├── storage2.bin
+    │   ├── storage_gatt.bin
+    │   └── vendor
+    │       └── libbtdm_app.a
+    ├── README.md
+    ├── dataAnalysis
+    │   ├── analysis_advertisement.py
+    │   ├── analysis_gatt.py
+    │   ├── combine_advertisement_files.py
+    │   ├── combine_gatt_files.py
+    │   ├── dataFiles
+    │   │   ├── questioner
+    │   │   │   ├── glued_gatt_log_0.bin
+    │   │   │   ├── glued_gatt_log_0.txt
+    │   │   │   ├── processed
+    │   │   │   │   ├── 2025-05-18-15-00-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_9.bin
+    │   │   │   │   ├── 2025-05-18-17-25-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_18.bin
+    │   │   │   │   ├── 2025-05-21-09-35-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_39.bin
+    │   │   │   │   ├── 2025-05-21-20-44-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_9.bin
+    │   │   │   │   ├── 2025-05-21-21-35-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_3.bin
+    │   │   │   │   ├── 2025-05-21-22-55-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_3.bin
+    │   │   │   │   ├── 2025-05-26-07-30-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_39.bin
+    │   │   │   │   ├── 2025-05-27-14-50-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_20.bin
+    │   │   │   │   ├── 2025-05-27-16-45-00
+    │   │   │   │   │   ├── glued_file.bin
+    │   │   │   │   │   ├── interrogator_log_0.bin -> interrogator_log_3.bin
+    │   │   │   │   ├── glued_file.bin
+    │   │   │   │   ├── interrogator_log_1.bin -> interrogator_log_23.bin # nie vsetky v serii
+    │   │   │   └── unprocessed
+    │   │   │       ├── 2025-05-18-09-25-00
+    │   │   │       ├── 2025-05-18-15-00-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_9.bin
+    │   │   │       ├── 2025-05-18-17-25-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_18.bin
+    │   │   │       ├── 2025-05-21-09-35-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_6.bin -> interrogator_log_39.bin
+    │   │   │       ├── 2025-05-21-20-44-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_9.bin
+    │   │   │       ├── 2025-05-21-21-35-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_3.bin
+    │   │   │       ├── 2025-05-21-22-55-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_3.bin
+    │   │   │       ├── 2025-05-26-07-30-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_39.bin
+    │   │   │       ├── 2025-05-27-14-50-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_20.bin
+    │   │   │       ├── 2025-05-27-16-45-00
+    │   │   │       │   ├── glued_file.bin
+    │   │   │       │   ├── interrogator_log_0.bin -> interrogator_log_3.bin
+    │   │   │       ├── glued_file.bin
+    │   │   │       ├── interrogator_log_1.bin -> interrogator_log_23.bin # nie vsetky v serii
+    │   │   └── scanner
+    │   │       ├── output
+    │   │       │   ├── 2025-05-18-15-00-00
+    │   │       │   │   ├── advertisement_timeline_20250526_142513_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_144225_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_151128_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_151151_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_151433_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_153659_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_154718_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_154818_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_154857_glued_advertisements.csv.png
+    │   │       │   │   └── advertisement_timeline_20250528_065508_glued_advertisements.csv.png
+    │   │       │   ├── 2025-05-21-09-35-00
+    │   │       │   │   ├── advertisement_timeline_20250526_100016_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_103434_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_115141_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_115517_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_121138_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_121325_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_121410_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_122314_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_123024_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_123138_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_123215_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250526_124419_glued_advertisements.csv.png
+    │   │       │   │   └── advertisement_timeline_20250526_131005_glued_advertisements.csv.png
+    │   │       │   ├── 2025-05-21-21-35-00
+    │   │       │   │   ├── advertisement_timeline_20250528_054911_glued_advertisements.csv.png
+    │   │       │   │   └── advertisement_timeline_20250528_055058_glued_advertisements.csv.png
+    │   │       │   ├── 2025-05-21-22-55-00
+    │   │       │   │   └── advertisement_timeline_20250528_055747_glued_advertisements.csv.png
+    │   │       │   ├── 2025-05-27-16-45-00
+    │   │       │   │   ├── advertisement_rf_komora.png
+    │   │       │   │   ├── advertisement_timeline_20250528_000309_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_005139_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_005209_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_005355_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_010305_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_010447_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_011159_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_011525_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_011730_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_011833_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_020550_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_021415_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_021701_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_021855_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_022313_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_022357_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_022521_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_023759_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_024306_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_024410_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_032613_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_032632_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_035406_glued_advertisements.csv.png
+    │   │       │   │   ├── advertisement_timeline_20250528_035824_glued_advertisements.csv.png
+    │   │       │   │   └── advertisement_timeline_20250528_035859_glued_advertisements.csv.png
+    │   │       │   └── priečinok bez názvu
+    │   │       ├── processed
+    │   │       │   ├── 2025-05-12-15-32-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_14.csv
+    │   │       │   ├── 2025-05-13-22-14-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_7.csv
+    │   │       │   ├── 2025-05-18-15-00-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_33.csv
+    │   │       │   ├── 2025-05-18-17-25-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_25.csv
+    │   │       │   ├── 2025-05-21-09-35-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_1.csv -> scanner_log_16.csv
+    │   │       │   ├── 2025-05-21-20-44-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_5.csv
+    │   │       │   ├── 2025-05-21-21-35-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_2.csv
+    │   │       │   ├── 2025-05-21-22-55-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_2.csv
+    │   │       │   ├── 2025-05-26-07-30-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_102.csv 
+    │   │       │   ├── 2025-05-27-14-50-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_105.csv
+    │   │       │   ├── 2025-05-27-16-45-00
+    │   │       │   │   ├── glued_advertisements.csv
+    │   │       │   │   ├── scanner_log_0.csv -> scanner_log_4.csv
+    │   │       │   ├── glued_advertisements.csv
+    │   │       │   ├── scanner_log_2.csv
+    │   │       │   ├── scanner_log_3.csv
+    │   │       │   └── scanner_log_4.csv
+    │   │       └── unprocessed
+    │   │           ├── 2025-05-12-15-32-00
+    │   │           │   ├── scanner_log_0.bin -> scanner_log_14.bin
+    │   │           ├── 2025-05-13-22-14-00
+    │   │           │   ├── scanner_log_0.bin -> scanner_log_7.bin
+    │   │           ├── 2025-05-18-15-00-00
+    │   │           │   ├── scanner_log_0.bin -> scanner_log_25.bin
+    │   │           ├── 2025-05-18-17-25-00
+    │   │           │   ├── scanner_log_0.bin -> scanner_log_25.bin
+    │   │           ├── 2025-05-21-09-35-00
+    │   │           │   ├── scanner_log_1.bin -> scanner_log_16.bin
+    │   │           ├── 2025-05-21-20-44-00
+    │   │           │   ├── scanner_log_0.bin ->  scanner_log_5.bin
+    │   │           ├── 2025-05-21-21-35-00
+    │   │           │   ├── scanner_log_0.bin
+    │   │           │   ├── scanner_log_1.bin
+    │   │           │   └── scanner_log_2.bin
+    │   │           ├── 2025-05-21-22-55-00
+    │   │           │   ├── scanner_log_0.bin  -> scanner_log_2.bin
+    │   │           ├── 2025-05-26-07-30-00
+    │   │           │   ├── scanner_log_0.bin -> scanner_log_102.bin
+    │   │           ├── 2025-05-27-14-50-00
+    │   │           │   ├── scanner_log_0.bin -> scanner_log_0.bin
+    │   │           ├── 2025-05-27-16-45-00
+    │   │           │   ├── scanner_log_0.bin -> scanner_log_4.bin
+    │   │           ├── scanner_log_2.bin
+    │   │           ├── scanner_log_3.bin
+    │   │           └── scanner_log_4.bin
+    │   ├── included in thesis
+    │   │   ├── RF_jaccard.png
+    │   │   ├── RF_jaccard_only_RPA.png
+    │   │   ├── Vojta_Samsung.txt
+    │   │   ├── advertisement_rf_komora.png
+    │   │   ├── advertisement_trivial_example.png
+    │   │   ├── office_setting.png
+    │   │   ├── office_setting_2.png
+    │   │   └── small_jaccard.png
+    │   ├── includes
+    │   │   ├── big_jaccard.png
+    │   │   ├── custom_apple_names.py
+    │   │   ├── custom_uuid.py
+    │   │   └── libbtdm_app.a
+    │   ├── littlefsDownloader.py
+    │   ├── process_interrogator_files.py
+    │   └── process_scanner_files.py
